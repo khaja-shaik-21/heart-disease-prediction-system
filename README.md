@@ -83,6 +83,8 @@ The model is trained on the **UCI Heart Disease Dataset** or similar clinical da
 1. Clone the repository:
 ```bash
 git clone https://github.com/khaja-shaik-21/heart-disease-prediction-system.git
+```
+```bash
 cd heart-disease-prediction-system
 ```
 
@@ -91,7 +93,8 @@ cd heart-disease-prediction-system
 # For Windows
 python -m venv venv
 venv\Scripts\activate
-
+```
+```bash
 # For macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
@@ -215,10 +218,6 @@ Contributions are welcome! Please follow these steps:
 6. Create a Pull Request
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Disclaimer
 
 This application is for educational and informational purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for medical decisions.
@@ -234,4 +233,5 @@ This application is for educational and informational purposes only. It should n
 
 
 **Made with ❤️ for better healthcare**
+
 
