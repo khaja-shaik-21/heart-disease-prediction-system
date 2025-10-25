@@ -227,9 +227,11 @@ This application is for educational and informational purposes only. It should n
 
 **Khaja Shaik**
 
-- GitHub: [@khaja-shaik-21](https://github.com/khaja-shaik-21)
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
+- Follow me on GitHub 
+- Email: khajamail21@gmail.com
+- LinkedIn: https://www.linkedin.com/in/shaik-khaja21/
+- Portfolio : https://khaja-shaik-21.github.io/Portfolio/
 
 
 **Made with ❤️ for better healthcare**
+
