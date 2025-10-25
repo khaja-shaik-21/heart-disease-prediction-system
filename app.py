@@ -5,12 +5,17 @@ import os
 
 app = Flask(__name__)
 
-# Load the trained model (saved with joblib)
+# Load the trained model and scaler
 model_path = os.path.join('model', 'model', 'heart_model.pkl')
+scaler_path = os.path.join('model', 'model', 'scaler.pkl')
+
 if not os.path.exists(model_path):
     # Try alternative path
     model_path = os.path.join('model', 'heart_model.pkl')
+    scaler_path = os.path.join('model', 'scaler.pkl')
+
 model = joblib.load(model_path)
+scaler = joblib.load(scaler_path)
 
 @app.route('/')
 def home():
@@ -38,12 +43,15 @@ def predict():
         features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, 
                               thalach, exang, oldpeak, slope, ca, thal]])
         
-        # Make prediction
-        prediction = model.predict(features)[0]
+        # Scale the features (IMPORTANT: Must scale before prediction)
+        features_scaled = scaler.transform(features)
+        
+        # Make prediction on scaled data
+        prediction = model.predict(features_scaled)[0]
         
         # Get probability if available
         if hasattr(model, 'predict_proba'):
-            probability = model.predict_proba(features)[0]
+            probability = model.predict_proba(features_scaled)[0]
             confidence = round(max(probability) * 100, 2)
         else:
             confidence = None
