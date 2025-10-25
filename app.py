@@ -1,11 +1,16 @@
 from flask import Flask, render_template, request
-import joblib  # Use joblib (matches how you saved the model)
+import joblib
 import numpy as np
+import os
 
 app = Flask(__name__)
 
 # Load the trained model (saved with joblib)
-model = joblib.load('model/model/heart_model.pkl')
+model_path = os.path.join('model', 'model', 'heart_model.pkl')
+if not os.path.exists(model_path):
+    # Try alternative path
+    model_path = os.path.join('model', 'heart_model.pkl')
+model = joblib.load(model_path)
 
 @app.route('/')
 def home():
@@ -53,4 +58,6 @@ def predict():
                              error=str(e))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use PORT environment variable for deployment
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
